@@ -247,7 +247,14 @@
     {
         "id": 47,
         "question": "Qual a renda mensal média da família?",
-        "type": "text"
+        "type": "select",
+        "options": [
+            "- de 1000",
+            "1000 a 1500",
+            "1500 a 2500",
+            "2500 a 3500",
+            "+ de 3500"
+        ]
     },
     {
         "id": 48,
@@ -265,11 +272,6 @@
         "type": "text"
     },
     {
-        "id": 51,
-        "question": "Quantas crianças moram em sua casa?",
-        "type": "text"
-    },
-    {
         "id": 52,
         "question": "E qual a idade das crianças?",
         "type": "text"
@@ -282,11 +284,18 @@
     {
         "id": 54,
         "question": "A família recebe alguns auxílios do governo (bolsa família e\\ou outro)?",
-        "type": "text"
+        "type": "radio",
+        "options": ["Sim", "Não"]
     },
     {
         "id": 55,
         "question": "A família mora em casa alugada ou própria?",
+        "type": "radio",
+        "options": ["Alugada", "Própria"]
+    },
+    {
+        "id": 59,
+        "question": "Qual o valor do aluguel? Caso não tenha, escreva que não possui",
         "type": "text"
     },
     {

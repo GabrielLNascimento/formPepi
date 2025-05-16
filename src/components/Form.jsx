@@ -11,20 +11,23 @@ const Form = () => {
             if (type === 'checkbox') {
                 const prevValues = prev[questionId] || [];
                 if (prevValues.includes(value)) {
-                    // Remove valor
                     return {
                         ...prev,
                         [questionId]: prevValues.filter((v) => v !== value),
                     };
                 } else {
-                    // Adiciona valor
                     return {
                         ...prev,
                         [questionId]: [...prevValues, value],
                     };
                 }
+            } else if (type === 'multi-select') {
+                return {
+                    ...prev,
+                    [questionId]: value,
+                };
             } else {
-                // radio ou text
+                // text, radio, select
                 return {
                     ...prev,
                     [questionId]: value,
@@ -45,7 +48,7 @@ const Form = () => {
         //     }
         // });
 
-        const allAnswered = true
+        const allAnswered = true;
 
         if (!allAnswered) {
             alert('Por favor, responda todas as perguntas antes de enviar.');
@@ -138,6 +141,24 @@ const Form = () => {
                                 }
                                 placeholder="Digite sua resposta aqui"
                             />
+                        )}
+
+                        {q.type === 'select' && q.options && (
+                            <select
+                                value={answers[q.id] || ''}
+                                onChange={(e) =>
+                                    handleChange(q.id, e.target.value, 'select')
+                                }
+                            >
+                                <option value="" disabled>
+                                    Selecione uma opção
+                                </option>
+                                {q.options.map((option, index) => (
+                                    <option key={index} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
                         )}
                     </div>
                 ))}

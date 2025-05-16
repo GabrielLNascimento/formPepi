@@ -43,6 +43,11 @@ input[type="radio"] {
     margin-right: 5px;
 }
 
+select {
+    padding: 5px 10px;
+    color: rgb(63, 63, 63);
+}
+
 .btn-submit {
     background-color: rgb(0, 61, 0);
     color: white;
